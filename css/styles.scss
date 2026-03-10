@@ -1,0 +1,30 @@
+// Base Variables/Styles
+:root {
+    // Layout Spacing
+    --breakpoint: 580px;
+    --container-max-width: 1620px;
+
+    // Img Utility Variable
+    --img-border-radius: 6px;
+
+    // Colors
+    --black: #000;
+    --purple: #2E083D;
+    --orange: #FF5C00;
+    --pink: #CB2DF0;
+    --white: #fff;
+
+    // Background Color
+    background-color: var(--purple);
+    
+    // Font
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+}
+
+// Utility Classes
+
+// Mobile Styles
+
+// Desktop Styles
+@media screen and (min-width: --breakpoint) {}
