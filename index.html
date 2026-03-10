@@ -11,20 +11,54 @@
 
 <body>
     <!-- Content -->
-    <header>
-        <nav>
-
+    <header class="header">
+        <nav class="navigation">
+            <div class="logo-wrapper">
+                <a href="#">
+                    <img class="logo-image" src="assets/gogglebox_logo.png">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#">
+                    <p class="link-text">Sign In</p>
+                </a>
+            </div>
         </nav>
     </header>
-    <main>
-        <section id="hero-image">
-            <picture></picture>
+    <main class="main-content">
+        <section id="hero-banner" class="section-content">
+            <picture>
+                <source media="(min-width:580px)" srcset="assets/hero_image_desktop.jpg">
+                <img src="assets/hero_image_mobile.jpg" alt="What We Do in the Shadows" class="img-responsive">
+            </picture>
         </section>
-        <section id="now-playing">
-            
+        <section id="now-playing" class="section-content">
+            <h2 class="section-header">Now Playing</h2>
+            <div class="grid tri-banner">
+                <div class="tri-banner__main">
+                    <a href="#">
+                        <img class="img-responsive" src="assets/now_playing_omitb.jpg">
+                    </a>
+                </div>
+                <div class="tri-banner__secondary">
+                    <div class="tri-banner__secondary__item">
+                        <a href="#">
+                            <img class="img-responsive" src="assets/now_playing_yellowjackets.jpg">
+                        </a>
+                    </div>
+                    <div class="tri-banner__secondary__item">
+                        <a href="#">
+                            <img class="img-responsive" src="assets/now_playing_stranger_things_s4.jpg">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="tomorrow-schedule">
-            
+        <section id="tomorrow-schedule" class="section-content">
+            <h2 class="section-header">Tomorrow's Schedule</h2>
+            <ul class="card-slider">
+                
+            </ul>
         </section>
     </main>
 

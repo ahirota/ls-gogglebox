@@ -36,6 +36,15 @@ async function getScheduleItems() {
 // Parse item into usable HTML
 function parseScheduleItemToHTML(scheduleItem) {
     // TO DO
+
+    // Card Template
+    // <li class="card">
+    //     <div class="card-wrapper">
+    //         <a href="" class="card-link">
+    //             <img src="" class="">
+    //         </a>
+    //     </div>
+    // </li>
 }
 
 // Format Tomorrow's Date to ISO 8601 for TV Maze API Consumption
