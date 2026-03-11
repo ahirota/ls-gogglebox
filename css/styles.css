@@ -27,7 +27,7 @@ body a {
 
 .section-content {
   padding: 0 4.83vw;
-  margin-bottom: 50px;
+  margin-bottom: clamp(30px, 12.08vw, 50px);
 }
 .section-content .section-header {
   font-size: clamp(16px, 4.83vw, 24px);
@@ -95,7 +95,7 @@ body a {
 .card-slider .card {
   display: flex;
   flex-direction: column;
-  flex: 0 0 210px;
+  flex: 0 0 clamp(180px, 60vw, 210px);
   scroll-snap-align: start;
   transition: all 0.2s;
 }
@@ -142,7 +142,7 @@ body a {
 
 #hero-banner {
   padding: 0;
-  margin-bottom: clamp(20px, 7.24vw, 30px);
+  margin-bottom: clamp(25px, 8.45vw, 35px);
 }
 
 @media screen and (min-width: 580px) {
@@ -170,6 +170,9 @@ body a {
   }
   .card-slider .card {
     flex-basis: clamp(210px, 60vw, 245px);
+  }
+  .card-slider .card:not(:last-child) {
+    margin-right: clamp(20px, 1.85vw, 30px);
   }
   .card-slider::-webkit-scrollbar {
     height: 9px;
