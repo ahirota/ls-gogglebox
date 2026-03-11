@@ -16,7 +16,9 @@ async function main() {
     for (const item of scheduleItems) {
         scheduleCards += parseScheduleItemToHTML(item);
     }
-    $('#schedule-cards').append(scheduleCards);
+    $('#tomorrow-schedule > .card-slider-wrapper > #schedule-cards').append(scheduleCards);
+    $('#tomorrow-schedule > .card-slider-wrapper').removeClass('hide');
+    $('#tomorrow-schedule > .loader-wrapper').addClass('hide');
 }
 
 // Helper Functions
