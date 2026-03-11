@@ -53,7 +53,7 @@ body {
 
     .section-header {
         font-size: clamp(16px, 4.83vw, 24px);
-        margin-bottom: 20px;
+        margin-bottom: clamp(14px, 4.83vw, 20px);
         font-weight: 600;
         letter-spacing: 0.03em;
     }
@@ -71,11 +71,13 @@ body {
     }
 }
 
-.loader-wrapper {
+.loader-wrapper,.empty-wrapper {
     width: 100%;
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 324px;
 }
 
@@ -97,7 +99,19 @@ body {
     100% {
         transform: rotate(360deg);
     }
-} 
+}
+
+.empty-wrapper {
+    .empty-header {
+        font-size: (16px, 4.83vw, 20px);
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .empty-message {
+        font-size: clamp(10px, 2.89vw, 14px);
+    }
+}
 
 .card-slider {
     display: flex;
@@ -114,7 +128,7 @@ body {
         transition: all 0.2s;
 
         &:not(:last-child) {
-            margin-right: 30px;
+            margin-right: clamp(20px, 7.25vw, 30px);
         }
     }
 
@@ -197,7 +211,7 @@ body {
         }
     }
 
-    .loader-wrapper {
+    .loader-wrapper,.empty-wrapper {
         height: clamp(393px, 26.73vw, 433px);
     }
 

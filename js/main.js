@@ -8,10 +8,16 @@ $(async function() {
     await main();
 });
 
-// Main Call
+// Main Call to Populate Tomorrow's Schedule
 async function main() {
     const scheduleItems = await getScheduleItems();
-    console.log(scheduleItems);
+    
+    if (!scheduleItems) {
+        $('#tomorrow-schedule > .empty-wrapper').removeClass('hide');
+        $('#tomorrow-schedule > .loader-wrapper').addClass('hide');
+        return; 
+    }
+
     let scheduleCards = '';
     for (const item of scheduleItems) {
         scheduleCards += parseScheduleItemToHTML(item);
@@ -36,7 +42,9 @@ async function getScheduleItems() {
 
         return result.slice(0,24);
     } catch (error) {
-        console.log(error);
+        console.error(`Failed to retrieve TV Maze schedule items for ${tomorrowDate}`);
+        console.error(error);
+        return null;
     }
 }
 
@@ -50,7 +58,7 @@ function parseScheduleItemToHTML(scheduleItem) {
     return `<li class="card">
     <div class="card-wrapper">
         <a href="${url}" class="card-link">
-            <img src="${img}" alt="Poster for ${alt}" class="img-responsive">
+            <img loading="lazy" src="${img}" alt="Poster for ${alt}" class="img-responsive">
         </a>
     </div>
 </li>`;
@@ -61,4 +69,9 @@ function formattedTomorrowDate() {
     const date = new Date();
     date.setDate(date.getDate() + 1);
     return date.toISOString().slice(0,10);
+}
+
+function reveal() {
+    $('#tomorrow-schedule > .loader-wrapper').addClass('hide');
+    $('#tomorrow-schedule > .error-wrapper').removeClass('hide');
 }
