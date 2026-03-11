@@ -41,7 +41,7 @@ async function getScheduleItems() {
 // Parse item into usable HTML
 function parseScheduleItemToHTML(scheduleItem) {
     const url = scheduleItem.url ? scheduleItem.url : "#";
-    const img = scheduleItem.show.image?.medium ? scheduleItem.show.image?.medium : "assets/no_image_placeholder.jpg";
+    const img = scheduleItem.show.image?.original ? scheduleItem.show.image?.medium : "assets/no_image_placeholder.jpg";
     const alt = scheduleItem.show.name ? scheduleItem.show.name : "Unknown Show";
 
     // Card Template
