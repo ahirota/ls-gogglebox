@@ -4,18 +4,20 @@ const SCHEDULE_ENDPOINT = 'schedule';
 const COUNTRY_CODE = 'US';
 
 // Run On Document Ready
-$(async function() {
+$(async function () {
     await main();
+
+    toggleSliderGradientListener();
 });
 
 // Main Call to Populate Tomorrow's Schedule
 async function main() {
     const scheduleItems = await getScheduleItems();
-    
+
     if (!scheduleItems) {
         $('#tomorrow-schedule > .empty-wrapper').removeClass('hide');
         $('#tomorrow-schedule > .loader-wrapper').addClass('hide');
-        return; 
+        return;
     }
 
     let scheduleCards = '';
@@ -40,7 +42,7 @@ async function getScheduleItems() {
             dataType: 'json'
         });
 
-        return result.slice(0,24);
+        return result.slice(0, 24);
     } catch (error) {
         console.error(`Failed to retrieve TV Maze schedule items for ${tomorrowDate}`);
         console.error(error);
@@ -68,10 +70,29 @@ function parseScheduleItemToHTML(scheduleItem) {
 function formattedTomorrowDate() {
     const date = new Date();
     date.setDate(date.getDate() + 1);
-    return date.toISOString().slice(0,10);
+    return date.toISOString().slice(0, 10);
 }
 
-function reveal() {
-    $('#tomorrow-schedule > .loader-wrapper').addClass('hide');
-    $('#tomorrow-schedule > .error-wrapper').removeClass('hide');
+// Show/Hide right side gradient on scroller when last child in view 
+function toggleSliderGradientListener() {
+    $('#tomorrow-schedule > .card-slider-wrapper > #schedule-cards').scroll(function () {
+        const lastItem = $('#schedule-cards .card:last-child').get(0);
+
+        if (elementIsVisibleInViewport(lastItem)) {
+            if ($('#tomorrow-schedule > .card-slider-wrapper').hasClass('last-not-visible')) {
+                $('#tomorrow-schedule > .card-slider-wrapper').toggleClass('last-not-visible');
+            }
+        } else {
+            if (!$('#tomorrow-schedule > .card-slider-wrapper').hasClass('last-not-visible')) {
+                $('#tomorrow-schedule > .card-slider-wrapper').toggleClass('last-not-visible');
+            }
+        }
+    });
 }
+
+// Detect when Element is in Viewport
+function elementIsVisibleInViewport(el) {
+    const { top, left, bottom, right } = el.getBoundingClientRect();
+    const { innerHeight, innerWidth } = window;
+    return top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+};

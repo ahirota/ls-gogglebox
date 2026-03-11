@@ -238,7 +238,7 @@ body {
     .card-slider-wrapper {
         position: relative;
 
-        &::after {
+        &.last-not-visible::after {
             content: " ";
             display: block;
             box-sizing: border-box;

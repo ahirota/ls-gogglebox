@@ -183,7 +183,7 @@ body a {
   .card-slider-wrapper {
     position: relative;
   }
-  .card-slider-wrapper::after {
+  .card-slider-wrapper.last-not-visible::after {
     content: " ";
     display: block;
     box-sizing: border-box;
