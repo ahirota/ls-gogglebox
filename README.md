@@ -8,6 +8,9 @@ To my understanding, this is to test a few things:
 - JQuery Ajax requests
 - Dynamic content insertion via JS
 
+## Link to GH Pages Hosted Site
+https://ahirota.github.io/ls-gogglebox/
+
 ## What it should look like
 Mobile:
 
