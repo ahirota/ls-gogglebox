@@ -17,6 +17,15 @@ Desktop:
 
 ![Desktop Design](./assets/gogglebox_desktop.jpg)
 
+## Tool Acknoledgments
+- JQuery-4.0.0
+  - Self hosted for speed improvements over CDN
+- SCSS Preprocessor
+  - Makes writing CSS not a hassle, was not explicitly disallowed
+- Node http-server
+  - Easy localhost development for static sites
+  - No need for node.js project or dev server via bundler like Vite
+
 ## Challenges
 Without access to a Photoshop/Figma file for getting exact measurements/spacing/font styling, a lot of this was eyeballing and using the images as reference in Figma.
 
