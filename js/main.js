@@ -10,8 +10,13 @@ $(async function() {
 
 // Main Call
 async function main() {
-    const data = await getScheduleItems();
-    console.log(data);
+    const scheduleItems = await getScheduleItems();
+    console.log(scheduleItems);
+    let scheduleCards = '';
+    for (const item of scheduleItems) {
+        scheduleCards += parseScheduleItemToHTML(item);
+    }
+    $('#schedule-cards').append(scheduleCards);
 }
 
 // Helper Functions
@@ -35,16 +40,18 @@ async function getScheduleItems() {
 
 // Parse item into usable HTML
 function parseScheduleItemToHTML(scheduleItem) {
-    // TO DO
+    const url = scheduleItem.url ? scheduleItem.url : "#";
+    const img = scheduleItem.show.image?.medium ? scheduleItem.show.image?.medium : "assets/no_image_placeholder.jpg";
+    const alt = scheduleItem.show.name ? scheduleItem.show.name : "Unknown Show";
 
     // Card Template
-    // <li class="card">
-    //     <div class="card-wrapper">
-    //         <a href="" class="card-link">
-    //             <img src="" class="">
-    //         </a>
-    //     </div>
-    // </li>
+    return `<li class="card">
+    <div class="card-wrapper">
+        <a href="${url}" class="card-link">
+            <img src="${img}" alt="Poster for ${alt}" class="img-responsive">
+        </a>
+    </div>
+</li>`;
 }
 
 // Format Tomorrow's Date to ISO 8601 for TV Maze API Consumption

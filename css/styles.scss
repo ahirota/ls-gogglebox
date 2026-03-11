@@ -40,6 +40,7 @@ a {
 // 50px between schedule
 // 26px above sliderscroll
 
+// Component Styles
 .img-responsive {
     display: block;
     width: 100%;
@@ -48,12 +49,8 @@ a {
 }
 
 .section-content {
-    margin-bottom: 30px;
-
-    &:not(#hero-banner) {
-        padding: 0 4.83vw;
-        margin-bottom: 50px;
-    }
+    padding: 0 4.83vw;
+    margin-bottom: 50px;
 
     .section-header {
         font-size: clamp(16px, 4.83vw, 24px);
@@ -75,6 +72,43 @@ a {
     }
 }
 
+.card-slider {
+    display: flex;
+    padding: 0 0 26px;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 210px;
+        scroll-snap-align: start;
+        transition: all 0.2s;
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb,&::-webkit-scrollbar-track {
+        border-radius: 100vw;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--orange), var(--pink));
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--black);
+    }
+}
+
+// Grouped Section Styles
 .header {
     background-color: var(--black);
     padding: 0 4.83vw;
@@ -109,6 +143,12 @@ a {
     .copyright {
         font-size: clamp(10px, 2.89vw, 14px);
     }
+}
+
+// Override Styles
+#hero-banner {
+    padding: 0;
+    margin-bottom: 30px;
 }
 
 // Desktop Styles
