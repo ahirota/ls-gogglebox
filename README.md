@@ -3,7 +3,7 @@ Small coding challenge designed to test basic HTML/CSS/JS competency for Living 
 
 To my understanding, this is to test a few things:
 - HTML Structuring and Semantic HTML tags
-  - Picture tag was the only ask but relates to 
+  - Picture tag was the only ask but relates to CSS Breakpoints
 - Responsive CSS Styling (focus on Flexbox/Breakpoints)
 - JQuery Ajax requests
 - Dynamic content insertion via JS
